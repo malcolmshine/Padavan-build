@@ -94,8 +94,8 @@ jobs:
         #格式如下：
         #sed -i '/自定义项/d' .config
         #echo "自定义项=y" >> .config
-        sed -i '/CONFIG_FIRMWARE_INCLUDE_EAP_PEAP/d' .config
-        echo "CONFIG_FIRMWARE_INCLUDE_EAP_PEAP=y" >> .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_WPAD/d' .config
+        echo "CONFIG_FIRMWARE_INCLUDE_WPAD=y" >> .config
         #########################################################################################
         sudo ./clear_tree
         sudo ./build_firmware_modify $TNAME 0
