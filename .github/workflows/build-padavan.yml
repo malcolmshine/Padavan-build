@@ -38,7 +38,7 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: XY-C1
+        TNAME: NEWIFI-D1
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
@@ -94,6 +94,8 @@ jobs:
         #格式如下：
         #sed -i '/自定义项/d' .config
         #echo "自定义项=y" >> .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_EAP_PEAP/d' .config
+        echo "CONFIG_FIRMWARE_INCLUDE_EAP_PEAP=y" >> .config
         #########################################################################################
         sudo ./clear_tree
         sudo ./build_firmware_modify $TNAME 0
